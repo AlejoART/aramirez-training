@@ -7,17 +7,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
-public class Base {
+public class BasePage {
 
     private WebDriver driver;
 
-    public Base(WebDriver driver){
+    public BasePage(WebDriver driver){
         this.driver = driver;
+    }
+    public BasePage(){
+
     }
 
     //setting up the driver config
     public WebDriver chromeDriverConnection(){
-        System.setProperty("webdriver.chrome.driver","resources/drivers/chromedriver");
+        System.setProperty("webdriver.chrome.driver","src/test/java/resources/drivers/chromedriver");
         driver = new ChromeDriver();
         return driver;
     }

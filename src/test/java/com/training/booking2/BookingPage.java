@@ -1,15 +1,14 @@
-package com.training.booking;
+package com.training.booking2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class BookingPage extends BasePage {
 
-    //locators here
-    By accomodationLinkTextLocator = By.linkText("Accommodations");
     By searchBoxLocator = By.id("ss");
 
     By calendar= By.xpath("//*[@id=\"frm\"]/div[1]/div[2]/div[1]/div[2]/div/div/div/div/span");
@@ -28,23 +27,24 @@ public class BookingPage extends BasePage {
     }
 
     public void setDestination(String destination){
-        type(destination, searchBoxLocator);
+        driver.findElement(searchBoxLocator).sendKeys(destination);
     }
     public void setBookingDate(){
-        findElement(calendar).click();
-        findElement(checkIn).click();
-        findElement(checkOut).click();
+        driver.findElement(calendar).click();
+        driver.findElement(checkIn).click();
+        driver.findElement(checkOut).click();
     }
 
     public int childAmount(){
-        List<WebElement> spans = findElements(amounts);
-        return Integer.parseInt(getText(spans.get(1)));
+        List<WebElement> spans;
+        spans = driver.findElements(amounts);
+        return Integer.parseInt((spans.get(1).getText()));
     }
 
     public void setChildAmount(){
-        findElement(guestBoxToogle).click();
+        driver.findElement(guestBoxToogle).click();
         int childAmount = childAmount();
-        List <WebElement> setters = findElements(amountsSetters);
+        List <WebElement> setters = driver.findElements(amountsSetters);
         if(childAmount == 0){
             setters.get(3).click();
         }else{
@@ -56,6 +56,6 @@ public class BookingPage extends BasePage {
     }
 
     public void search(){
-        findElement(searchButton).click();
+        driver.findElement(searchButton).click();
     }
 }

@@ -1,4 +1,4 @@
-package com.training.booking;
+package com.training.booking2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
