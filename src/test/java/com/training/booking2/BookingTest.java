@@ -18,11 +18,19 @@ public class BookingTest extends BaseTest {
 
         bookingPage.search();
 
-        WebDriverWait ewait = new WebDriverWait(getDriver(),10);
-        ewait.until(ExpectedConditions.titleContains("Book your hotel now!"));
+        Thread.sleep(2000);
+
+//        WebDriverWait ewait = new WebDriverWait(getDriver(),10);
+//        ewait.until(ExpectedConditions.titleContains("Book your hotel now!"));
 
         OptionsPage optionsPage = new OptionsPage(getDriver());
         optionsPage.reserve();
+
+        WebDriverWait ewait3 = new WebDriverWait(getDriver(),10);
+        ewait3.until(ExpectedConditions.titleContains("Your Details"));
+
+        PaymentPage paymentPage = new PaymentPage(getDriver());
+        paymentPage.confirmHotel();
 
     }
 }
