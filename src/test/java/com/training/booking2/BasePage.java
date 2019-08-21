@@ -7,6 +7,8 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+
 public class BasePage {
 
     private static final int TIMEOUT = 5;
@@ -31,5 +33,12 @@ public class BasePage {
 
     protected void waitForTextToDisappear(By locator, String text) {
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(locator, text)));
+    }
+
+    public void switchToTab(int tab){
+        ArrayList tabs = new ArrayList (driver.getWindowHandles());
+        //System.out.println(tabs.size());
+        //Use the list of window handles to switch between windows
+        driver.switchTo().window((String) tabs.get(tab -1));
     }
 }
