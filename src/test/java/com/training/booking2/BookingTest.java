@@ -15,22 +15,26 @@ public class BookingTest extends BaseTest {
         bookingPage.setDestination("Chile");
         bookingPage.setBookingDate();
         bookingPage.setChildAmount();
-
         bookingPage.search();
 
+        SearchResultsPage searchResultsPage = new SearchResultsPage(getDriver());
+        searchResultsPage.checkAvailability();
+        switchToTab(2);
         Thread.sleep(2000);
 
 //        WebDriverWait ewait = new WebDriverWait(getDriver(),10);
 //        ewait.until(ExpectedConditions.titleContains("Book your hotel now!"));
 
         OptionsPage optionsPage = new OptionsPage(getDriver());
+        Hotel hotel = new Hotel();
+        hotel.setPrice(optionsPage.getHotelPrice());
         optionsPage.reserve();
 
         WebDriverWait ewait3 = new WebDriverWait(getDriver(),10);
         ewait3.until(ExpectedConditions.titleContains("Your Details"));
 
         PaymentPage paymentPage = new PaymentPage(getDriver());
-        paymentPage.confirmHotel();
+        paymentPage.confirmHotel(hotel.getPrice());
 
     }
 }

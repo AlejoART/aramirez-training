@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import java.util.ArrayList;
+
 public class BaseTest {
 
     private WebDriver driver;
@@ -22,5 +24,12 @@ public class BaseTest {
 
     public WebDriver getDriver(){
         return driver;
+    }
+
+    public void switchToTab(int tab) {
+        ArrayList tabs = new ArrayList(driver.getWindowHandles());
+        //System.out.println(tabs.size());
+        //Use the list of window handles to switch between windows
+        driver.switchTo().window((String) tabs.get(tab - 1));
     }
 }
