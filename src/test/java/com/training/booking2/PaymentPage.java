@@ -16,10 +16,8 @@ public class PaymentPage extends BasePage {
         if (driver.findElement(checkInDate).getText().equals("Monday, September 23, 2019")
                 && driver.findElement(checkOutDate).getText().equals("Friday, September 27, 2019")
                 && driver.findElement(hotelPriceConf).getText().equals(hotelPrice)) {
-            System.out.println("The hotel information matches!!!");
             return true;
         }
-        System.out.println("The hotel information doesn't match!!!");
         return false;
     }
 }

@@ -3,6 +3,7 @@ package com.training.booking2;
 import com.training.booking2.OptionsPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class BookingTest extends BaseTest {
@@ -34,7 +35,7 @@ public class BookingTest extends BaseTest {
         ewait3.until(ExpectedConditions.titleContains("Your Details"));
 
         PaymentPage paymentPage = new PaymentPage(getDriver());
-        paymentPage.confirmHotel(hotel.getPrice());
+        Assert.assertTrue(paymentPage.confirmHotel(hotel.getPrice()),"The information of the hotel doesn't match!");
 
     }
 }

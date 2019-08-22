@@ -23,3 +23,7 @@ a
 1src/test/java/com/training/booking2/BaseTest.java,e/c/ec748cb3e64ec51e3cd3323ac820f5fc9da5ae2c
 d
 4src/test/java/com/training/booking2/BookingPage.java,f/6/f6166970186494cb21530fe68fc5d6295f72f080
+d
+4src/test/java/com/training/booking2/PaymentPage.java,5/a/5a0a0bbe61acd4e7db7d8a345567fc610f0ac995
+d
+4src/test/java/com/training/booking2/OptionsPage.java,0/a/0a7d468b78b61818cbc9882bd37a2a2b40d0fe88
