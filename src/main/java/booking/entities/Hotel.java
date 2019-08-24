@@ -1,4 +1,4 @@
-package com.training.booking2;
+package booking.entities;
 
 public class Hotel {
     private String name;

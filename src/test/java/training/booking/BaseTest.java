@@ -1,4 +1,4 @@
-package com.training.booking2;
+package training.booking;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,11 +15,12 @@ public class BaseTest {
     public void beforeSuite(){
         System.setProperty("webdriver.chrome.driver","src/test/java/resources/drivers/chromedriver");
         driver = new ChromeDriver();
+        driver.get("https://www.booking.com");
     }
 
     @AfterSuite
     public void afterSuite(){
-        //driver.quit();
+        driver.quit();
     }
 
     public WebDriver getDriver(){
@@ -28,7 +29,6 @@ public class BaseTest {
 
     public void switchToTab(int tab) {
         ArrayList tabs = new ArrayList(driver.getWindowHandles());
-        //System.out.println(tabs.size());
         //Use the list of window handles to switch between windows
         driver.switchTo().window((String) tabs.get(tab - 1));
     }

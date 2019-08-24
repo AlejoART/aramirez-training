@@ -1,17 +1,20 @@
-package com.training.booking2;
+package training.booking;
 
-import com.training.booking2.OptionsPage;
+import booking.entities.Hotel;
+import booking.pages.BookingPage;
+import booking.pages.OptionsPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import booking.pages.PaymentPage;
+import booking.pages.SearchResultsPage;
 
 public class BookingTest extends BaseTest {
 
     @Test
     public void bookingTest() throws InterruptedException {
         BookingPage bookingPage = new BookingPage(getDriver());
-        bookingPage.driver.get("https://www.booking.com/");
 
         bookingPage.setDestination("Chile");
         bookingPage.setBookingDate();
@@ -21,10 +24,9 @@ public class BookingTest extends BaseTest {
         SearchResultsPage searchResultsPage = new SearchResultsPage(getDriver());
         searchResultsPage.checkAvailability();
         switchToTab(2);
-        Thread.sleep(2000);
 
-//        WebDriverWait ewait = new WebDriverWait(getDriver(),10);
-//        ewait.until(ExpectedConditions.titleContains("Book your hotel now!"));
+        WebDriverWait ewait2 = new WebDriverWait(getDriver(),10);
+        ewait2.until(ExpectedConditions.titleContains("Chile - Booking.com"));
 
         OptionsPage optionsPage = new OptionsPage(getDriver());
         Hotel hotel = new Hotel();
