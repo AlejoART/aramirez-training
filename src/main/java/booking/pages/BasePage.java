@@ -55,11 +55,6 @@ public class BasePage {
             return false;
         }
     }
-
-    public void visit(String url){
-        driver.get(url);
-    }
-
     protected void waitForElementToAppear(By locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
@@ -74,7 +69,6 @@ public class BasePage {
 
     public void switchToTab(int tab){
         ArrayList tabs = new ArrayList (driver.getWindowHandles());
-        //System.out.println(tabs.size());
         //Use the list of window handles to switch between windows
         driver.switchTo().window((String) tabs.get(tab -1));
     }
