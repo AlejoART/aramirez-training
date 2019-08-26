@@ -9,6 +9,7 @@ public class Hotel {
     }
 
     public Hotel() {
+        super();
     }
 
     public String getPrice() {
