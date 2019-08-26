@@ -16,9 +16,9 @@ public class SearchResultsPage extends BasePage {
 
     public void checkAvailability() throws InterruptedException {
         click(lowestPrice);
-
-        WebDriverWait ewait = new WebDriverWait(driver, 10);
-        ewait.until(ExpectedConditions.elementToBeClickable(availability));
+        Thread.sleep(2000);
+        //WebDriverWait ewait = new WebDriverWait(driver, 10);
+        //ewait.until(ExpectedConditions.visibilityOfElementLocated(availability));
 
         click(availability);
     }
